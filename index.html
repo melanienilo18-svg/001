@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Preparando...</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+
+font-family:'Inter',sans-serif;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+
+background: radial-gradient(circle at top,#1a1400,#0d0a00,#050400);
+
+color:white;
+
+overflow:hidden;
+
+}
+
+/* brilho fundo */
+
+body::before{
+
+content:"";
+
+position:absolute;
+
+width:800px;
+height:800px;
+
+background:radial-gradient(circle,#ffd70033,transparent);
+
+filter:blur(120px);
+
+animation:moveGlow 10s infinite alternate;
+
+}
+
+@keyframes moveGlow{
+
+from{
+transform:translate(-30%,-30%);
+}
+
+to{
+transform:translate(30%,30%);
+}
+
+}
+
+/* container */
+
+.card{
+
+width:90%;
+max-width:420px;
+
+padding:45px 30px;
+
+border-radius:20px;
+
+background:#0b0800;
+
+border:1px solid #2c2400;
+
+box-shadow:0 25px 60px rgba(0,0,0,.7);
+
+text-align:center;
+
+position:relative;
+
+}
+
+/* titulo */
+
+.title{
+
+font-size:34px;
+
+font-weight:700;
+
+letter-spacing:.5px;
+
+color:#ffd700;
+
+margin-bottom:10px;
+
+}
+
+/* subtitulo */
+
+.subtitle{
+
+color:#ffe27a;
+
+margin-bottom:30px;
+
+}
+
+/* barra progresso */
+
+.progress{
+
+width:100%;
+height:16px;
+
+background:#0b0800;
+
+border-radius:20px;
+
+border:1px solid #2c2400;
+
+overflow:hidden;
+
+}
+
+.bar{
+
+height:100%;
+width:0%;
+
+background:linear-gradient(90deg,#ffd700,#ffb300);
+
+box-shadow:0 0 12px #ffd700;
+
+transition:.3s;
+
+}
+
+/* porcentagem */
+
+.percent{
+
+margin-top:12px;
+
+font-weight:600;
+
+color:#ffd700;
+
+}
+
+/* botão */
+
+.btn{
+
+display:block;
+
+margin-top:35px;
+
+padding:15px;
+
+border-radius:30px;
+
+background:linear-gradient(90deg,#ffd700,#ffb300);
+
+color:#0b0800;
+
+font-weight:700;
+
+text-decoration:none;
+
+transition:.25s;
+
+}
+
+.btn:hover{
+
+transform:scale(1.05);
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+<div class="title">
+MEGA FEIRÃO
+</div>
+
+<div class="subtitle">
+Sua oferta está sendo preparada
+</div>
+
+<div class="progress">
+<div class="bar" id="bar"></div>
+</div>
+
+<div class="percent" id="percent">
+0%
+</div>
+
+<a class="btn" href="https://acessovipclientes.github.io/feirao/inicio/">
+CONTINUAR
+</a>
+
+</div>
+
+<script>
+
+let p=0
+
+let bar=document.getElementById("bar")
+
+let txt=document.getElementById("percent")
+
+let loading=setInterval(()=>{
+
+p++
+
+bar.style.width=p+"%"
+
+txt.innerText=p+"%"
+
+if(p>=100) clearInterval(loading)
+
+},40)
+
+</script>
+
+</body>
+</html>
